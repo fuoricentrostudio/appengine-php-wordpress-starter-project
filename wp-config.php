@@ -14,24 +14,21 @@
      * @package WordPress
      */
 
-    // Required for batcache use
-    define('WP_CACHE', true);
-
     // ** MySQL settings - You can get this info from your web host ** //
     /** The name of the database for WordPress */
-    define('DB_NAME', 'wordpress_db');
-
     if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'],'Google App Engine') !== false) {
         /** Live environment Cloud SQL login and SITE_URL info */
         /** Note that from App Engine, the password is not required, so leave it blank here */
         define('DB_HOST', ':/cloudsql/your-project-id:wordpress');
         define('DB_USER', 'root');
         define('DB_PASSWORD', '');
+        define('DB_NAME', 'wordpress_db');
     } else {
         /** Local environment MySQL login info */
         define('DB_HOST', '127.0.0.1');
         define('DB_USER', 'root');
         define('DB_PASSWORD', 'password');
+        define('DB_NAME', 'wordpress_db');
     }
 
     // Determine HTTP or HTTPS, then set WP_SITEURL and WP_HOME
@@ -44,6 +41,10 @@
     define( 'WP_SITEURL', $protocol_to_use . $_SERVER['HTTP_HOST']);
     define( 'WP_HOME', $protocol_to_use . $_SERVER['HTTP_HOST']);
 
+    // custom content directory
+    define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
+    define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );    
+    
     /** Database Charset to use in creating database tables. */
     define('DB_CHARSET', 'utf8');
 
@@ -102,6 +103,8 @@
      */
     define('DISABLE_WP_CRON', true);
     
+    // Required for batcache use
+    define('WP_CACHE', true);
     // configures batcache
     $batcache = [
       'seconds'=>0,

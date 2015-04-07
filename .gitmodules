@@ -1,12 +1,12 @@
 [submodule "appengine-wordpress-plugin"]
-	path = appengine-wordpress-plugin
+	path = content/plugins/appengine-wordpress-plugin
 	url = https://github.com/GoogleCloudPlatform/appengine-wordpress-plugin.git
 [submodule "batcache"]
-	path = batcache
+	path = content/plugins/batcache
 	url = https://github.com/Automattic/batcache.git
 [submodule "wordpress"]
 	path = wordpress
 	url = https://github.com/WordPress/WordPress.git
 [submodule "wp-memcache"]
-	path = wp-memcache
+	path = content/plugins/wp-memcache
 	url = https://github.com/jeremyfelt/Memcached-Object-Cache.git
